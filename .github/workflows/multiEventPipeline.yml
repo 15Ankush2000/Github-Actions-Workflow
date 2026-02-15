@@ -5,7 +5,8 @@ on:
     branches:
       - main
       - master
-
+  schedule:
+    - cron: '0 10 * * 2,4' # Runs daily at midnight
   pull_request:
     branches:
       - main
@@ -16,14 +17,14 @@ on:
 
 jobs:
 
-  on-push:
+  on-push: #jon1
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: "Running on push"
         run: echo "Running on push event!"
 
-  on-pull-request:
+  on-pull-request: #job 2
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
@@ -36,3 +37,17 @@ jobs:
     steps:
       - name: "Running on pull request closed"
         run: echo "Pull request was closed!"
+
+  on-workflow-dispatch: #job 3
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Running on workflow dispatch"
+        run: echo "Running on workflow dispatch event!"
+
+  on-schedule: #job 4
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Running on schedule"
+        run: echo "Running on schedule event!"      
