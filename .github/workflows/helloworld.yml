@@ -1,6 +1,5 @@
 name: "Hello world workflow"
-# controls when action will run. Triggers the workflow on push or pull request events but only for
-# the master branch
+
 on:
   push:
     branches:
@@ -8,11 +7,8 @@ on:
       - master
 
 jobs:
-   hello_world:
+  hello_world:
     runs-on: ubuntu-latest
     steps:
-      - name: "Print Hello world "
+      - name: "Print Hello world"
         run: echo "Hello world!"
-
-      - name: "Print current date"
-        run: date   
