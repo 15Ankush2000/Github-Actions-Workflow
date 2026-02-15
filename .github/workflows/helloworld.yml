@@ -3,7 +3,7 @@ name: "Hello world workflow"
 # the master branch
 on:
   push:
-  branches:
+    branches:
       - main
       - master
 
