@@ -4,8 +4,8 @@ name: "Hello world workflow"
 on:
   push:
   branches:
-      - master
       - main
+      - master
 
 jobs:
    hello_world:
@@ -13,3 +13,6 @@ jobs:
     steps:
       - name: "Print Hello world "
         run: echo "Hello world!"
+
+      - name: "Print current date"
+        run: date   
